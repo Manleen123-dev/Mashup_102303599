@@ -2,8 +2,11 @@ services:
   - type: web
     name: mashup-generator-102303599
     env: python
+    plan: free
+    runtime: python
     buildCommand: |
       apt-get update
       apt-get install -y ffmpeg
       pip install -r requirements.txt
     startCommand: gunicorn webapp.app:app
+
