@@ -1,0 +1,7 @@
+yt-dlp==2025.1.15
+moviepy==1.0.3
+pydub==0.25.1
+ffmpeg-python==0.2.0
+Flask==3.0.0
+imageio-ffmpeg==0.4.9
+gunicorn

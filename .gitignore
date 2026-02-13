@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# VS Code
+.vscode/
+
+# Logs
+logs/
+*.log
+
+# Data files (IMPORTANT — do not push heavy media)
+data/videos/
+data/audios/
+data/clips/
+data/output/
+
+# Temporary files
+*.tmp
+*.temp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Render / deployment cache
+*.zip
+
+# Environment variables
+.env
+
+# Large media files
+*.mp3
+*.wav
+*.webm
+*.mp4
+
+# Python build files
+build/
+dist/
+*.egg-info/
