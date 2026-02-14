@@ -6,25 +6,14 @@
 
 ## Project Overview
 
-The Mashup Generator is a Python-based application designed to
-automatically create an audio mashup using songs from YouTube. The
-system accepts user input such as singer name, number of songs, and clip
-duration, and produces a single merged audio file.
+The Mashup Generator is a Python-based web application that
+automatically creates an audio mashup from songs retrieved from YouTube.
+Users provide input such as singer name, number of songs, and clip
+duration, and the system downloads, processes, and merges audio clips
+into a single mashup file.
 
-The project demonstrates backend development, media processing, modular
-architecture, and web integration using modern tools and frameworks.
-
-------------------------------------------------------------------------
-
-## Objectives
-
-The main objectives of this project include:
-
--   Automate retrieval of songs from YouTube
--   Process and extract audio segments
--   Combine multiple audio clips into one mashup
--   Provide both CLI and Web-based interfaces
--   Follow structured and modular development practices
+This project demonstrates backend development, media processing, modular
+software architecture, and cloud deployment.
 
 ------------------------------------------------------------------------
 
@@ -32,15 +21,15 @@ The main objectives of this project include:
 
 ``` mermaid
 flowchart LR
-    A[User Input] --> B[Flask Web Interface]
-    B --> C[Mashup Engine]
-    C --> D[YouTube Search]
-    D --> E[Download Audio]
-    E --> F[Convert Audio]
-    F --> G[Extract Clips]
+    A[User] --> B[Web Browser]
+    B --> C[Flask Web Application]
+    C --> D[Mashup Processing Engine]
+    D --> E[Download Audio yt-dlp]
+    E --> F[Convert Audio ffmpeg]
+    F --> G[Trim Clips pydub]
     G --> H[Merge Audio]
-    H --> I[Generate Mashup File]
-    I --> J[Return Output to User]
+    H --> I[Generate Mashup]
+    I --> J[Return to User]
 ```
 
 ------------------------------------------------------------------------
@@ -56,38 +45,39 @@ sequenceDiagram
     participant Cutter
     participant Merger
 
-    User->>WebApp: Enter Singer, Count, Duration
-    WebApp->>Downloader: Search videos
-    Downloader->>Converter: Provide downloaded files
-    Converter->>Cutter: Convert to MP3
-    Cutter->>Merger: Provide trimmed clips
-    Merger->>WebApp: Return mashup file
+    User->>WebApp: Input singer and parameters
+    WebApp->>Downloader: Fetch videos
+    Downloader->>Converter: Provide audio
+    Converter->>Cutter: Convert format
+    Cutter->>Merger: Send clips
+    Merger->>WebApp: Return mashup
     WebApp->>User: Provide output
 ```
 
 ------------------------------------------------------------------------
 
-## Module Structure
+## Deployment
+
+The application is deployed using Render cloud platform and can be
+accessed through the following link:
+
+**Deployment URL:**\
+https://mashup-generator-102303599.onrender.com
+
+This deployment allows users to access the mashup generator through a
+web interface without installing any software locally.
+
+------------------------------------------------------------------------
+
+## Deployment Architecture
 
 ``` mermaid
-graph TD
-    A[Mashup System] --> B[Downloader Module]
-    A --> C[Converter Module]
-    A --> D[Cutter Module]
-    A --> E[Merger Module]
-    A --> F[Web Interface]
-
-    B --> B1[YouTube Search]
-    B --> B2[Download Files]
-
-    C --> C1[Format Conversion]
-
-    D --> D1[Clip Extraction]
-
-    E --> E1[Audio Merging]
-
-    F --> F1[Flask Application]
-    F --> F2[Bootstrap UI]
+flowchart TD
+    A[Developer] --> B[GitHub Repository]
+    B --> C[Render Cloud Platform]
+    C --> D[Web Service]
+    D --> E[Public Deployment URL]
+    E --> F[End Users Access Application]
 ```
 
 ------------------------------------------------------------------------
@@ -130,11 +120,14 @@ graph TD
 -   Bootstrap
 -   CSS
 
+### Deployment
+
+-   Render Cloud Platform
+-   GitHub
+
 ------------------------------------------------------------------------
 
 ## Command Line Usage
-
-The mashup can be generated using:
 
     python 102303599.py "Singer Name" 5 20 mashup.mp3
 
@@ -148,23 +141,18 @@ Example:
 
 Steps:
 
-1.  Run the Flask application
+1.  Open the deployment link in a browser:
 
 ```{=html}
 <!-- -->
 ```
-    python webapp/app.py
+    https://mashup-generator-102303599.onrender.com
 
-2.  Open browser
+2.  Enter required details
 
-```{=html}
-<!-- -->
-```
-    http://127.0.0.1:5000
+3.  Generate mashup
 
-3.  Enter required details
-
-4.  Generate mashup
+4.  Download output file
 
 ------------------------------------------------------------------------
 
@@ -172,11 +160,11 @@ Steps:
 
 ``` mermaid
 flowchart TD
-    A[Input Parameters] --> B[Search Videos]
+    A[User Input] --> B[Search Videos]
     B --> C[Download Audio]
-    C --> D[Convert Format]
-    D --> E[Trim Audio]
-    E --> F[Merge Clips]
+    C --> D[Convert Audio]
+    D --> E[Trim Clips]
+    E --> F[Merge Audio]
     F --> G[Output Mashup]
 ```
 
@@ -184,49 +172,29 @@ flowchart TD
 
 ## Key Features
 
--   Automated mashup creation
+-   Automated mashup generation
+-   Web-based interface
 -   Modular architecture
--   Web-based user interface
--   Command-line support
+-   Cloud deployment
 -   Automated audio processing
 
 ------------------------------------------------------------------------
 
 ## Learning Outcomes
 
-Through this project, the following concepts were explored:
-
 -   Backend development using Flask
 -   Media processing using Python
--   Modular software design
--   Web application integration
--   Handling real-world media data
-
-------------------------------------------------------------------------
-
-## Limitations
-
--   Processing time depends on internet speed
--   Depends on availability of YouTube content
--   Large files may take longer to process
-
-------------------------------------------------------------------------
-
-## Future Improvements
-
--   Progress tracking feature
--   Improved UI design
--   Cloud storage integration
--   Performance optimization
+-   Web application deployment
+-   Modular software architecture
+-   Cloud deployment using Render
 
 ------------------------------------------------------------------------
 
 ## Conclusion
 
-This project successfully demonstrates an automated mashup generation
-system using Python and web technologies. It integrates media
-processing, backend development, and web interface design into a
-complete application.
+This project successfully implements an automated mashup generator and
+demonstrates integration of backend development, media processing, and
+cloud deployment technologies.
 
 ------------------------------------------------------------------------
 
